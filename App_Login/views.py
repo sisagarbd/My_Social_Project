@@ -13,4 +13,4 @@ def sign_up(request):
             registered = True
             pass
 
-    return render(request, 'App_Login/signup.html', {'title': 'Sign Up . Instragram', 'form': form})
+    return render(request, 'App_Login/sign_up.html', {'title': 'Sign Up . Instragram', 'form': form})
