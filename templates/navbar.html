@@ -29,10 +29,15 @@
               <a class="nav-link" href="{% url 'App_Login:logout' %}">Logout</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Pricing</a>
+              {% if user.user_profile.profile_pic %}
+              <a class="nav-link" href="#"><img src="/media/{{user.user_profile.profile_pic}}" width="30px" height="30px" class="rounded-circle" alt=""></a>
+              {% else %}
+              <a class="nav-link" href="#"><img src="/media/default.png" width="30px" height="30px" class="rounded-circle" alt=""></a>
+              {% endif %}
+
             </li>
           </ul>
-          <span class="navbar-text">
+          <span class="navbar-text">zz
             Navbar text with an inline element
           </span>
         </div>
