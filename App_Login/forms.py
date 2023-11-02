@@ -20,3 +20,9 @@ class CreateNewUser(UserCreationForm):
         model = User
         fields = ('email', 'username', 'password1', 'password2')
         
+class EditProfile(forms.ModelForm):
+    dob = forms.DateField(widget=forms.TextInput(attrs={'type':'date'}))
+    class Meta:
+        model = User
+        fields = "__all__"
+        exclude = ('user',)
