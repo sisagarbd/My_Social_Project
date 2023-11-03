@@ -21,7 +21,8 @@ About: This project is a social media project. Whare user can login and Update t
 
 Project Should Run
 
-Active Urls:
-(http://127.0.0.1:8000/)   
-(http://127.0.0.1:8000/accounts/login/)   
-(http://127.0.0.1:8000/accounts/signup/)   < These link will work after it run on server.
+Active Urls:   
+
+http://127.0.0.1:8000/   
+http://127.0.0.1:8000/accounts/login/   
+http://127.0.0.1:8000/accounts/signup/   < These link will work after it run on server.
