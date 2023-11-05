@@ -6,6 +6,7 @@ from App_Login.models import UserProfile
 from .models import UserProfile
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
+from App_Posts.forms import PostForm
 
 
 
@@ -49,6 +50,7 @@ def edit_profile(request):
         if form.is_valid():
             form.save(commit=True)
             form = EditProfile(instance=current_user)
+            return HttpResponseRedirect(reverse('App_Login:profile'))
 
     return render(request, "App_Login/profile.html", context={'form':form, 'title':'Edit Profile . Social'})
 
@@ -61,4 +63,14 @@ def logout_user(request):
 
 @login_required
 def profile(request):
-    return render(request, "App_Login/user.html", context={'title': 'User'})
+    form = PostForm()
+
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.save()
+            return HttpResponseRedirect(reverse('home'))
+
+    return render(request, "App_Login/user.html", context={'title': 'User', 'form': form})

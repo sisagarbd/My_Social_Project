@@ -17,14 +17,25 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <a class="navbar-brand" href="#">RG</a>
+        &nbsp; &nbsp; &nbsp;
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
+        
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav mr-auto">
+            &nbsp;&nbsp;&nbsp;
             <li class="nav-item active">
               <a class="nav-link" href="{% url 'App_Posts:home' %}">Home <span class="sr-only">(current)</span></a>
             </li>
+            &nbsp;&nbsp;&nbsp;
+
+            <form class="form-inline" method="GET">
+              <input class="form-control mr-sm-2" type="text" name="search" placeholder="Search">
+              <button class="btn btn-success" type="submit">Search</button>
+            </form>
+            &nbsp;&nbsp;
+
             <li class="nav-item">
               <a class="nav-link" href="{% url 'App_Login:logout' %}">Logout</a>
             </li>
