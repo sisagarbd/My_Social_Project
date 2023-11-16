@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from App_Login.models import UserProfile
 
 class CreateNewUser(UserCreationForm):
     email = forms.EmailField(required=True, label="", widget=forms.TextInput(attrs={'placeholder':'Email'}))
@@ -23,6 +24,6 @@ class CreateNewUser(UserCreationForm):
 class EditProfile(forms.ModelForm):
     dob = forms.DateField(widget=forms.TextInput(attrs={'type':'date'}))
     class Meta:
-        model = User
-        fields = "__all__"
+        model = UserProfile
+        fields = "__all__" 
         exclude = ('user',)
